@@ -3,8 +3,12 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 29
 
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
     defaultConfig {
-        applicationId "br.usjt.ads20.drinksapp"
+        applicationId "br.usjt.ads20.universidadeapp"
         minSdkVersion 27
         targetSdkVersion 29
         versionCode 1
@@ -27,6 +31,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-all:1.9.5'
+    testImplementation 'org.json:json:20200518'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 

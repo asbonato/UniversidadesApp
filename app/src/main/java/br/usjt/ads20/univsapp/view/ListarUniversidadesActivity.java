@@ -1,7 +1,10 @@
-package br.usjt.ads20.univsapp;
+package br.usjt.ads20.univsapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import br.usjt.ads20.univsapp.R;
+import br.usjt.ads20.univsapp.presenter.ListarUniversidadesPresenter;
+import br.usjt.ads20.univsapp.presenter.UniversidadeAdapter;
+import br.usjt.ads20.univsapp.model.Universidade;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,20 +14,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 /**
  * Nome: Antonio Sergio Ferreira Bonato
  * RA: 931280
  */
-public class ListarUniversidadesActivity extends AppCompatActivity {
+public class ListarUniversidadesActivity extends AppCompatActivity implements ListarUniversidadesView{
     public static final String UNIVERSIDADE = "br.usjt.ads20.drinksapp.universidade";
     private Universidade[] lista;
     private Context context;
     private BaseAdapter adapter;
     private ListView listView;
-    private ProgressBar progressBar;
+    ListarUniversidadesPresenter presenter = new ListarUniversidadesPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +58,15 @@ public class ListarUniversidadesActivity extends AppCompatActivity {
             });
         } else {
             {
-                Toast toast = Toast.makeText(this,
-                        this.getResources().getString(R.string.erro_rede), Toast.LENGTH_LONG);
-                toast.show();
+                mostrarToast("Nada foi encontrado.");
             }
         }
+
     }
 
+    public void mostrarToast(String s){
+        Toast toast = Toast.makeText(this,
+                s, Toast.LENGTH_LONG);
+        toast.show();
+    }
 }

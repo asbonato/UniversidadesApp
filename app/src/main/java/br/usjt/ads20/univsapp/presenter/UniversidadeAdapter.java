@@ -1,4 +1,4 @@
-package br.usjt.ads20.univsapp;
+package br.usjt.ads20.univsapp.presenter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,10 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import java.util.Hashtable;
+
+import br.usjt.ads20.univsapp.R;
+import br.usjt.ads20.univsapp.model.Universidade;
+import br.usjt.ads20.univsapp.model.Util;
 
 public class UniversidadeAdapter extends BaseAdapter implements SectionIndexer {
     Universidade[] universidades;

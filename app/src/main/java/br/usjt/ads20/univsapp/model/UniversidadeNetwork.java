@@ -1,9 +1,10 @@
-package br.usjt.ads20.univsapp;
+package br.usjt.ads20.univsapp.model;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.util.Log;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,7 +19,7 @@ import okhttp3.Response;
 
 public class UniversidadeNetwork {
     public static Universidade[] buscarUniversidades(String url) throws IOException {
-        ArrayList<Universidade> universidades = new ArrayList<>();
+
         OkHttpClient client = new OkHttpClient();
 
         Log.d("buscarUniversidades:url",url);
@@ -30,6 +31,12 @@ public class UniversidadeNetwork {
         String json = response.body().string();
         Log.d("buscarUniversidades:json",json);
 
+        return getUniversidades(json);
+    }
+
+    @NotNull
+    public static Universidade[] getUniversidades(String json) throws IOException {
+        ArrayList<Universidade> universidades = new ArrayList<>();
         try {
             JSONArray lista = new JSONArray(json);
             for(int i = 0; i < lista.length(); i++) {

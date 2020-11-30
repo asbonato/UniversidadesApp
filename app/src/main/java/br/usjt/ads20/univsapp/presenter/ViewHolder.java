@@ -1,4 +1,4 @@
-package br.usjt.ads20.univsapp;
+package br.usjt.ads20.univsapp.presenter;
 
 import android.widget.ImageView;
 import android.widget.TextView;

@@ -1,8 +1,10 @@
-package br.usjt.ads20.univsapp;
+package br.usjt.ads20.univsapp.presenter;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.TreeSet;
+
+import br.usjt.ads20.univsapp.model.Universidade;
 
 public class SectionIndexBuilder {
     public static Object[] buildSectionHeaders(Universidade[] universidades) {
